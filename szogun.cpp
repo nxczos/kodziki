@@ -45,13 +45,13 @@ void solve()
     for(int i=0; i<n; ++i)
     {
         int last=-1;
-        while(not stack.empty() and a[stk.top()]>a[i])
+        while(not stk.empty() and a[stk.top()]>a[i])
         {
             last=stk.top();
             stk.pop();
         }
 
-        if(not st.empty())
+        if(not stk.empty())
         {
             par[i]=stk.top();
             r[stk.top()]=i;
@@ -69,7 +69,7 @@ void solve()
 	for(int i=0; i<n; ++i) 
 		if(par[i]==-1) root=i;
 
-	vc<ll> dp(n);
+	vc<ll> dp(n,1);
 	dfs(root, l,r,dp);
 	cout << dp[root]%mod;
 }
